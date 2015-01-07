@@ -19,9 +19,24 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         mXWalkView = (XWalkView) findViewById(R.id.xwalkView);
         //mXWalkView.
-        mXWalkView.load("http://crosswalk-project.org/", null);
+
+        if (savedInstanceState == null){
+            mXWalkView.load("http://crosswalk-project.org/", null);
+        }
     }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        mXWalkView.restoreState(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mXWalkView.saveState(outState);
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

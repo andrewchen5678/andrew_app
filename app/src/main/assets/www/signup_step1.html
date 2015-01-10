@@ -1,0 +1,44 @@
+<div id="signup-cont">
+<form name="user-form" id="user-form">
+<div class="invalid-label"><span data-bind="text: errors.username"></span><span data-bind="visible: errors.username.length === 0">&nbsp;</span></div>
+<input class="form-control default-input" type="text" placeholder="username" data-bind="value: user.username"  />
+<div class="invalid-label" data-bind="value: errors.password">invalid</div>
+<input class="form-control default-input" type="password" placeholder="password" data-bind="value: user.password" />
+<div class="submit-cont">
+<button id="next" class="teal-button button-next pull-right">next</button>
+</div>
+</form>
+</div>
+<script type="text/javascript">
+    var viewModel = {
+    	user:{
+        	username: ko.observable(""),      
+        	password: ko.observable("")
+    	},
+    	errors:{
+        	username: ko.observable(""),      
+        	password: ko.observable("")
+    	}
+    };
+    ko.applyBindings(viewModel);
+
+$("#next").click(function(event){
+  //alert( "Handler for .submit() called." );
+  event.preventDefault();
+  console.log("test");
+$.ajax({
+  type: "POST",
+  url: baseCmsUrl+"/api/v1/check_user_info_valid",
+  data: {user:viewModel.user},
+  success: function(data){
+        alert( "Data Saved: " + JSON.stringify(data) );
+  },
+  error: function(XMLHttpRequest, textStatus, errorThrown) {
+     alert("some error");
+     console.log(textStatus);
+  }
+});
+
+
+});
+</script>

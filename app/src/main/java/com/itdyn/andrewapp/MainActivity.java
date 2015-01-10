@@ -3,11 +3,17 @@ package com.itdyn.andrewapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PixelFormat;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import android.webkit.WebResourceResponse;
 
+import org.xwalk.core.XWalkPreferences;
 import org.xwalk.core.XWalkResourceClient;
 import org.xwalk.core.XWalkUIClient;
 import org.xwalk.core.XWalkView;
@@ -23,6 +29,17 @@ public class MainActivity extends Activity {
         }
 
         @Override
+        public boolean shouldOverrideUrlLoading(XWalkView view, String url) {
+            return super.shouldOverrideUrlLoading(view, url);
+        }
+
+        @Override
+        public void onLoadFinished(XWalkView view, String url) {
+            super.onLoadFinished(view, url);
+            //view.evaluateJavascript("");
+        }
+
+        @Override
         public WebResourceResponse shouldInterceptLoadRequest(XWalkView view, String url) {
          return super.shouldInterceptLoadRequest(view,url);
         }
@@ -34,32 +51,39 @@ public class MainActivity extends Activity {
         }
 
 
+
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("test","oncreate chafa");
+        XWalkPreferences.setValue(XWalkPreferences.ANIMATABLE_XWALK_VIEW,true);
         setContentView(R.layout.activity_main);
         mXwalkView = (XWalkView) findViewById(R.id.xwalkView);
-        //mXwalkView.
+        //(SurfaceView)mXwalkView.setZOrderOnTop(true);    // necessary
+        //SurfaceHolder sfhTrackHolder = mXwalkView.getHolder();
+        //sfhTrackHolder.setFormat(PixelFormat.TRANSPARENT);
+        mXwalkView.setBackgroundColor(Color.TRANSPARENT);
         mXwalkView.setResourceClient(new MyResourceClient(mXwalkView));
         mXwalkView.setUIClient(new MyUIClient(mXwalkView));
-        //if (savedInstanceState == null){
-            mXwalkView.load("http://crosswalk-project.org/", null);
-        //}
+        if (savedInstanceState == null){
+            mXwalkView.load("file:///android_asset/www/index.html#/signup/step1", null);
+
+        }
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        //mXwalkView.restoreState(savedInstanceState);
+        mXwalkView.restoreState(savedInstanceState);
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        //mXwalkView.saveState(outState);
+        mXwalkView.saveState(outState);
 
     }
 

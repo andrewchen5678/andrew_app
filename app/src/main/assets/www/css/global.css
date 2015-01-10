@@ -1,0 +1,78 @@
+#main{
+	height: 100%;
+}
+
+.gray_bg{
+	background-color: #f0f0f0;
+}
+
+.teal{
+	color: #00aec7;
+}
+
+
+.default-gray{
+	color: #8c8c8c;
+}
+
+.default-input{
+	padding: 14px;
+	background: white;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	border-radius: 0;
+	color: #000;
+
+	border: none;
+  	outline: none;
+
+	font-size:16px;
+}
+
+.default-input:focus {
+    box-shadow: none;
+}
+
+.error-input{
+	border: 1px #fa4616 solid;
+	border-radius: 0;
+}
+
+.form-control::-webkit-input-placeholder {
+
+  color: #8c8c8c;
+}
+
+.invalid-label{
+	padding-top:4px;
+	padding-bottom:4px;
+
+	color: #fa4616;
+	font-size: 12px;
+}
+
+.teal-button{
+
+	font-size: 20px;
+	border: none;
+	color: white;
+	background: #00aec7;
+	outline: 0; 
+}
+
+#signup-cont .button-next{
+	margin-top: 24px;
+	padding: 8px 50px;
+}
+
+
+/* sign up*/
+
+#signup-cont {
+	padding-left: 30px;
+	padding-right: 30px;
+	
+	height: 100%;
+}

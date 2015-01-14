@@ -109,31 +109,6 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (mXwalkView != null) {
-            mXwalkView.pauseTimers();
-            mXwalkView.onHide();
-        }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (mXwalkView != null) {
-            mXwalkView.resumeTimers();
-            mXwalkView.onShow();
-        }
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (mXwalkView != null) {
-            mXwalkView.onDestroy();
-        }
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

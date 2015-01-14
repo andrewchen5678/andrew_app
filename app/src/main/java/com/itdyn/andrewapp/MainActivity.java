@@ -69,7 +69,8 @@ public class MainActivity extends Activity {
         mXwalkView.setResourceClient(new MyResourceClient(mXwalkView));
         mXwalkView.setUIClient(new MyUIClient(mXwalkView));
         if (savedInstanceState == null){
-            mXwalkView.load("file:///android_asset/www/index.html#/signup/step1", null);
+            //mXwalkView.load("file:///android_asset/www/index.html#/signup/step1", null);
+            mXwalkView.load("https://crosswalk-project.org/", null);
 
         }
     }

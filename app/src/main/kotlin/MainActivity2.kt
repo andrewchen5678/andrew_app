@@ -6,13 +6,17 @@ import android.app.Activity
 import android.view.Menu
 import android.view.View
 import android.widget.Button
+import android.webkit.WebView
 
 
 open class MainActivity2: Activity() {
 
     protected override fun onCreate(savedInstanceState: Bundle?): Unit {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_droid)
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_droid);
+        var webview=findViewById(R.id.webView) as WebView;
+        webview.setJavascr
+
 /*
         var next: Button = findViewById(R.id.Button02) as Button
         next.setOnClickListener(object: View.OnClickListener {

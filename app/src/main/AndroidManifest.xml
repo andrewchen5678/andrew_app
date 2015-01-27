@@ -23,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>        <activity
-            android:name=".MainActivity2"
+            android:name=".TestActivity"
             android:label="@string/app_name"
             android:windowSoftInputMode="adjustPan">
 

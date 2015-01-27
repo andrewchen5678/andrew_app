@@ -1,14 +1,10 @@
 package com.itdyn.andrewapp;
 
-import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 
 public class TestActivity extends AndrewActivity {
@@ -20,10 +16,19 @@ public class TestActivity extends AndrewActivity {
         if (savedInstanceState == null) {
             Log.d("andrew","save instance state  null");
             getFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment(),TAG)
+                    .add(R.id.container, new TestFragment(), TAG)
                     .commit();
         }else{
-            Log.d("andrew",""+getFragmentManager().findFragmentByTag(TAG));
+            Log.d("andrew","save instance state NOT null");
+            Fragment chafa=getFragmentManager().findFragmentByTag(TAG);
+            Log.d(Constants.LOG_TAG, "" + chafa);
+            Log.d(Constants.LOG_TAG,"isAdded"+chafa.isAdded());
+            Log.d(Constants.LOG_TAG,"isDetached"+chafa.isDetached());
+            Log.d(Constants.LOG_TAG,"isHidden"+chafa.isHidden());
+            Log.d(Constants.LOG_TAG,"isInLayout"+chafa.isInLayout());
+            Log.d(Constants.LOG_TAG,"isRemoving"+chafa.isRemoving());
+            Log.d(Constants.LOG_TAG,"isResumed"+chafa.isResumed());
+            Log.d(Constants.LOG_TAG,"isVisible"+chafa.isVisible());
         }
 
     }
@@ -51,19 +56,4 @@ public class TestActivity extends AndrewActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends AndrewFragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main_activity2, container, false);
-            return rootView;
-        }
-    }
 }

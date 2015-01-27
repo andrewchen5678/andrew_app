@@ -3,5 +3,9 @@
     android:background="#0d4a62"
     android:layout_height="match_parent" tools:context=".MainActivity">
 
+    <org.xwalk.core.XWalkView
+        android:background="#0d4a62"
+        android:id="@+id/xwalkView"
+        android:layout_width="match_parent" android:layout_height="match_parent"></org.xwalk.core.XWalkView>
 
 </RelativeLayout>

@@ -1,23 +1,69 @@
 package com.itdyn.andrewapp;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.os.Bundle;
-import android.webkit.WebView;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
 
-/**
- * Created by andrew on 1/25/15.
- */
-public class TestActivity extends Activity {
-
+public class TestActivity extends AndrewActivity {
+    public static final String TAG="frag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_droid);
-        WebView webview=(WebView)findViewById(R.id.webView);
-        webview.getSettings().setJavaScriptEnabled(true);
-        webview.loadUrl("https://google-developers.appspot.com/maps/documentation/javascript/examples/full/map-simple");
+        setContentView(R.layout.activity_main_activity2);
+        if (savedInstanceState == null) {
+            Log.d("andrew","save instance state  null");
+            getFragmentManager().beginTransaction()
+                    .add(R.id.container, new PlaceholderFragment(),TAG)
+                    .commit();
+        }else{
+            Log.d("andrew",""+getFragmentManager().findFragmentByTag(TAG));
+        }
+
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main_activity2, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_map) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends AndrewFragment {
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_main_activity2, container, false);
+            return rootView;
+        }
+    }
 }

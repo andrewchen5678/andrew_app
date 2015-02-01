@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class TestActivity extends AndrewActivity {
+public class TestActivityWithFragment extends AndrewActivity {
     public static final String TAG="frag";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +48,7 @@ public class TestActivity extends AndrewActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_map) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

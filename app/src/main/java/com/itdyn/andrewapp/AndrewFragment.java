@@ -16,7 +16,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import javax.annotation.Nullable;
 
 /**
  * Created by andrewchen2 on 1/27/15.
@@ -41,7 +40,7 @@ public class AndrewFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         if(DEBUG_LIFECYCLE) {
             Log.d(Constants.LOG_TAG, getClass().getName() + ": onCreateView");
         }
@@ -49,7 +48,7 @@ public class AndrewFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         if(DEBUG_LIFECYCLE) {
             Log.d(Constants.LOG_TAG, getClass().getName() + ": onViewCreated");
         }
@@ -57,7 +56,7 @@ public class AndrewFragment extends Fragment {
     }
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+    public void onActivityCreated(Bundle savedInstanceState) {
         if(DEBUG_LIFECYCLE) {
             Log.d(Constants.LOG_TAG, getClass().getName() + ": onActivityCreated");
         }

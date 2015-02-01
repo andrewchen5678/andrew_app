@@ -29,12 +29,15 @@
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".TestActivity"
-            android:label="Test" >
+            android:name=".TestActivityWithFragment"
+            android:label="Test"
+            android:taskAffinity="com.itdyn.chafa">
         </activity>
+
         <activity
-            android:name=".WebActivity"
-            android:label="Web" >
+            android:name=".SingleTaskActivity"
+            android:launchMode="singleTask"
+            android:label="Single Task" >
         </activity>
     </application>
 

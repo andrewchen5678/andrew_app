@@ -5,8 +5,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.itdyn.andrewapp.TestFragment">
+    tools:context="com.itdyn.andrewapp.SingleTaskActivity">
 
+    <TextView android:text="this is single task activity" android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,13 +19,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Single Task"
+        android:text="Test Fragment"
+        android:onClick="startTestFragment2"
+        android:id="@+id/button3" />
 
-        android:id="@+id/button4" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test WebView Map"
-        android:id="@+id/button"
-       />
 </LinearLayout>

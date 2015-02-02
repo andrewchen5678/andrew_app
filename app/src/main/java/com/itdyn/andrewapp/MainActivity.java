@@ -2,30 +2,17 @@ package com.itdyn.andrewapp;
 
 
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.app.AlertDialog;
 import android.app.Dialog;
-import android.app.DialogFragment;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.List;
 
 
 public class MainActivity extends Activity {
@@ -139,7 +126,7 @@ public class MainActivity extends Activity {
             //iv.setImageResource(resourceIdOfImage);
 
             LayoutInflater inflater = getLayoutInflater();
-            iv= (ProgressBar) inflater.inflate(R.layout.test_spinner, null);
+            iv= (ProgressBar) inflater.inflate(R.layout.dialog_spinner, null);
             layout.addView(iv, params);
             addContentView(layout, params);
         }
